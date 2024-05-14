@@ -40,7 +40,7 @@ display.textContent = "0";
 var displayValue = display.textContent;
 
 let numberKeys = document.querySelectorAll('.number');
-numberKeys.forEach(key => key.addEventListener('click', () => updateDisplay(key.textContent)));
+numberKeys.forEach(numberKey => numberKey.addEventListener('click', () => updateDisplay(numberKey.textContent)));
 
 function updateDisplay(n) {
     if (displayValue == 0) {
@@ -55,13 +55,16 @@ function updateDisplay(n) {
 }
 
 let opKeys = document.querySelectorAll('.op');
-opKeys.forEach(opKeys => opKeys.addEventListener('click', () => updateDisplay(keys.textContent)));
+opKeys.forEach(opKey => opKey.addEventListener('click', () => updateDisplay(opKey.textContent)));
 
 
 
-let clear = document.querySelectorAll('#keyClear');
-clear.forEach(clear => clear.addEventListener('click', () => clearAll()));
-function clearAll() {
+let clearKey = document.querySelector('#keyClear');
+clearKey.addEventListener('click', () => clear());
+function clear() {
+    firstNumber;
+    secondNumber;
+    operator= '';
     displayValue = "0";
     display.textContent = "0";
 }
