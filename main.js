@@ -39,4 +39,11 @@ let display = document.querySelector('#display');
 
 let keys = document.querySelectorAll('.key');
 
-keys.forEach(keys => keys.addEventListener('click', () => console.log('hi')));
+keys.forEach(keys => keys.addEventListener('click', () => updateDisplay(keys.textContent)));
+
+var displayValue = "";
+
+function updateDisplay(n) {
+    displayValue += n;
+    display.textContent = displayValue;
+}
