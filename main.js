@@ -1,6 +1,17 @@
-var firstNumber;
-var secondNumber;
-var operator= '';
+const data = {
+    firstNumber: undefined,
+    secondNumber: undefined,
+    operator: "",
+};
+const display = document.querySelector('#display');
+const numberKeys = document.querySelectorAll('.number');
+const opKeys = document.querySelectorAll('.operator');
+const clearKey = document.querySelector('#keyClear');
+
+display.textContent = "0";
+var displayValue = display.textContent;
+numberKeys.forEach(numberKey => numberKey.addEventListener('click', () => updateDisplay(numberKey.textContent)));
+opKeys.forEach(opKey => opKey.addEventListener('click', () => operate(opKey.textContent)));
 
 function add(firstNumber, secondNumber) {
      let answer = Number(firstNumber) + Number(secondNumber);
@@ -61,13 +72,6 @@ function operate(n) {
     }
 }
 
-let display = document.querySelector('#display');
-display.textContent = "0";
-var displayValue = display.textContent;
-
-let numberKeys = document.querySelectorAll('.number');
-numberKeys.forEach(numberKey => numberKey.addEventListener('click', () => updateDisplay(numberKey.textContent)));
-
 function updateDisplay(n) {
     if (displayValue == "0" || displayValue == undefined) {
         displayValue = String(n);
@@ -86,7 +90,6 @@ function updateDisplay(n) {
     }
 }
 
-let clearKey = document.querySelector('#keyClear');
 clearKey.addEventListener('click', () => clear());
 function clear() {
     firstNumber= undefined;
@@ -95,6 +98,3 @@ function clear() {
     displayValue = "0";
     display.textContent = "0";
 }
-
-let opKeys = document.querySelectorAll('.operator');
-opKeys.forEach(opKey => opKey.addEventListener('click', () => operate(opKey.textContent)));
