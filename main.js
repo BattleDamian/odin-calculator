@@ -3,12 +3,11 @@ const data = {
     secondNumber: undefined,
     operator: "",
 };
-const display = document.querySelector('#display');
+const display = document.querySelector('#display').textContent;
 const numberKeys = document.querySelectorAll('.number');
 const opKeys = document.querySelectorAll('.operator');
 const clearKey = document.querySelector('#keyClear');
 
-display.textContent = "0";
 var displayValue = display.textContent;
 numberKeys.forEach(numberKey => numberKey.addEventListener('click', () => updateDisplay(numberKey.textContent)));
 opKeys.forEach(opKey => opKey.addEventListener('click', () => operate(opKey.textContent)));
