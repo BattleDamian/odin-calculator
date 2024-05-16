@@ -8,32 +8,32 @@ const numberKeys = document.querySelectorAll('.number');
 const opKeys = document.querySelectorAll('.operator');
 const clearKey = document.querySelector('#keyClear');
 
-var displayValue = display.textContent;
+var displayValue = display;
 numberKeys.forEach(numberKey => numberKey.addEventListener('click', () => updateDisplay(numberKey.textContent)));
 opKeys.forEach(opKey => opKey.addEventListener('click', () => operate(opKey.textContent)));
 
 function add(firstNumber, secondNumber) {
      let answer = Number(firstNumber) + Number(secondNumber);
      displayValue = String(answer);
-     display.textContent = String(displayValue);
+     display = String(displayValue);
 }
 
 function subtract(firstNumber, secondNumber) {
     let answer = Number(firstNumber) - Number(secondNumber);
     displayValue = String(answer);
-    display.textContent = String(displayValue);
+    display = String(displayValue);
 }
 
 function multiply(firstNumber, secondNumber) {
     let answer = Number(firstNumber) * Number(secondNumber);
     displayValue = String(answer);
-    display.textContent = String(displayValue);
+    display = String(displayValue);
 }
 
 function divide(firstNumber, secondNumber) {
     let answer = Number(firstNumber) / Number(secondNumber);
     displayValue = String(answer);
-    display.textContent = String(displayValue);
+    display = String(displayValue);
 }
 
 function operate(n) {
@@ -44,7 +44,7 @@ function operate(n) {
     if (firstNumber == undefined) {
         firstNumber = displayValue;
         displayValue = undefined;
-        display.textContent = firstNumber;
+        display = firstNumber;
         return;
     }
 
@@ -74,7 +74,7 @@ function operate(n) {
 function updateDisplay(n) {
     if (displayValue == "0" || displayValue == undefined) {
         displayValue = String(n);
-        display.textContent = String(displayValue);
+        display = String(displayValue);
         return;
     }
 
@@ -83,9 +83,9 @@ function updateDisplay(n) {
         return;
     }
 
-    if (display.textContent.length < 8) {
+    if (display.length < 8) {
         displayValue += String(n);
-        display.textContent = String(displayValue);
+        display = String(displayValue);
     }
 }
 
@@ -95,5 +95,5 @@ function clear() {
     secondNumber= undefined;
     operator= '';
     displayValue = "0";
-    display.textContent = "0";
+    display = "0";
 }
