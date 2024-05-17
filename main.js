@@ -95,6 +95,7 @@ function update(key) {
     if (currentNumber.length < 8) {
         updateOperation = true;
          if (updateDisplay) {
+            currentNumber = '';
             currentNumber += key;
             display.textContent = currentNumber;
             updateDisplay = false;
